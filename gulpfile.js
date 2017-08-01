@@ -1,3 +1,28 @@
+//npm init
+//npm install gulp --save-dev
+//npm install browserify --save-dev
+//npm install vinyl-source-stream --save-dev
+//npm install gulp-concat --save-dev
+//npm install gulp-uglify --save-dev
+//npm install gulp-util --save-dev
+//gulp build
+//npm install del --save-dev
+//npm install jshint --save-dev
+//npm install gulp-jshint --save-dev
+//gulp jshint (can repeat as needed)
+//bower init
+//bower install jquery --save
+//bower install bootstrap --save
+//bower install moment --save (if time is needed)
+//npm install bower-files --save-dev
+//npm install browser-sync --save-dev
+//gulp build (again)
+//gulp bower
+//gulp jsBrowserify
+//gulp build (again)
+//open new terminal tab and gulp serve
+
+
 var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
@@ -19,7 +44,6 @@ var lib = require('bower-files')({
     }
   }
 });
-
 
 
 gulp.task('concatInterface', function() {

@@ -7,14 +7,27 @@ $(document).ready(function() {
   setInterval(update, 1000);
   $('#alarm').hide();
   var time = moment().format("H:mm");
+  // var test = moment().format("HH:mm:ss");
+  // console.log(test);
+  // console.log(time);
+
   $('#alarm-form').submit(function(event) {
     event.preventDefault();
     var alarmSet = $('#set').val();
     var alarm = new Alarm(alarmSet);
     var winning = alarm.clock(time);
-    console.log(winning);
+    // var timer = alarm.timer();
+
+    // function slowAlert() {
+    //   alert('hi');
+    // }
+    //
+    // function delayedAlert() {
+    //   timeoutID = window.setTimeout(slowAlert, alarmSet);
+    // }
+
     if (winning === 1) {
       $('#alarm').show();
-    } 
+    }
   });
 });
