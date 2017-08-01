@@ -3,7 +3,7 @@ function Alarm(alarmSet) {
 }
 
 
-Alarm.prototype.clock = function() {
+Alarm.prototype.wake = function() {
   var time = moment().hour() + ":" + moment().minute();
   if (this.alarmSet === time) {
     return true;

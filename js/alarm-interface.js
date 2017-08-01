@@ -5,18 +5,16 @@ $(document).ready(function() {
     $('#clock').html(moment().format('h:mm A'));
   }
   setInterval(update, 1000);
+
   $('#alarm').hide();
-  var time = moment().format("h:mm");
 
   $('#alarm-form').submit(function(event) {
     event.preventDefault();
     var alarmSet = $('#set').val();
     var alarm = new Alarm(alarmSet);
-    // var winning = alarm.clock(test);
 
     setInterval(function(){
-      // alarm.clock();
-      if (alarm.clock() === true) {
+      if (alarm.wake() === true) {
         $('#alarm').show();
       }
     }, 1000);
