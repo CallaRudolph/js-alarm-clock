@@ -11,6 +11,7 @@ $(document).ready(function() {
   $('#alarm-form').submit(function(event) {
     event.preventDefault();
     var alarmSet = $('#set').val();
+    $('#display').text("Your alarm is set for " + alarmSet);
     var alarm = new Alarm(alarmSet);
 
     setInterval(function(){
