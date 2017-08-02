@@ -19,7 +19,9 @@
 //gulp build (again)
 //gulp bower
 //gulp jsBrowserify
-//gulp build (again)
+//npm install gulp-sass gulp-sourcemaps --save-dev
+//gulp cssBuild
+//gulp build (again, whenever adj. html, then gulp serve)
 //open new terminal tab and gulp serve
 
 
@@ -44,6 +46,8 @@ var lib = require('bower-files')({
     }
   }
 });
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 
 
 gulp.task('concatInterface', function() {
@@ -76,6 +80,7 @@ gulp.task('build', ['clean'], function(){
     gulp.start('jsBrowserify');
   }
   gulp.start('bower');
+  gulp.start('cssBuild');
 });
 
 gulp.task('jshint', function(){
@@ -107,6 +112,15 @@ gulp.task('bowerBuild', ['bower'], function(){
   browserSync.reload();
 });
 
+gulp.task('cssBuild', function() {
+  return gulp.src(['scss/*.scss'])
+  .pipe(sourcemaps.init())
+  .pipe(sass())
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest('./build/css'))
+  .pipe(browserSync.stream());
+});
+
 gulp.task('serve', function() {
   browserSync.init({
     server: {
@@ -116,4 +130,5 @@ gulp.task('serve', function() {
   });
   gulp.watch(['js/*.js'], ['jsBuild']);
   gulp.watch(['bower.json'], ['bowerBuild']);
+  gulp.watch(['scss/*.scss'], ['cssBuild']);
 });

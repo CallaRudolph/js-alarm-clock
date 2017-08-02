@@ -1,0 +1,15 @@
+$purple : #9999ff;
+$green : #66ff66;
+
+.form-group {
+  color: cyan;
+  .button {
+    background: $green;
+    color: $purple;
+  }
+}
+
+body {
+  background-color: $purple;
+  color: $green;
+}
